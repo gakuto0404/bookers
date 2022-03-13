@@ -1,13 +1,15 @@
-<h1>Editing Book</h1>
+<body>
+ <p id="success"></p>
+ <h1>Editing Book</h1>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+ <% if @book.errors.any? %>
+   <%= @book.errors.count %>errors prohibited this book from being saved:
+   <ul>
+     <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+    </ul>
+ <% end %>
 
 <%= form_with model: @book do |f| %>
 
@@ -24,3 +26,4 @@
   <%= link_to "Back", books_path %>
   
 <% end %>
+</body>
